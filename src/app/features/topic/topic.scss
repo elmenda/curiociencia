@@ -4,7 +4,7 @@
   padding: 24px 20px 20px;
 }
 .back {
-  color: #6547d9;
+  color: var(--color-primary-500);
   text-decoration: none;
   font-weight: 800;
 }
@@ -20,7 +20,7 @@
 .title small,
 .status {
   font-weight: 800;
-  color: #7054d8;
+  color: var(--color-primary-600);
   font-size: 0.78rem;
   letter-spacing: 0.06em;
 }
@@ -29,7 +29,7 @@
   margin: 4px 0;
 }
 .title p {
-  color: #6c687b;
+  color: var(--color-text-secondary);
 }
 .overall {
   display: grid;
@@ -49,19 +49,19 @@
 }
 .lesson-card {
   background: white;
-  border: 1px solid #ece9f8;
+  border: 1px solid var(--color-border);
   border-radius: 24px;
   padding: 22px;
   display: flex;
   gap: 18px;
-  box-shadow: 0 10px 30px #392e6710;
+  box-shadow: 0 10px 30px rgb(15 96 70 / 8%);
 }
 .number {
   width: 48px;
   height: 48px;
   border-radius: 15px;
-  background: #eee9ff;
-  color: #6547d9;
+  background: var(--color-primary-100);
+  color: var(--color-primary-500);
   font-weight: 900;
   font-size: 1.3rem;
   display: grid;
@@ -72,13 +72,13 @@
   margin: 8px 0;
 }
 .lesson-body p {
-  color: #6c687b;
+  color: var(--color-text-secondary);
   min-height: 42px;
 }
 .button {
   display: inline-block;
   border: 0;
-  background: #6547d9;
+  background: var(--color-primary-500);
   color: white;
   text-decoration: none;
   padding: 13px 20px;
@@ -86,8 +86,8 @@
   font-weight: 800;
 }
 .secondary {
-  background: #f0edff;
-  color: #6043d8;
+  background: var(--color-primary-50);
+  color: var(--color-primary-600);
 }
 .challenge {
   margin-top: 30px;
