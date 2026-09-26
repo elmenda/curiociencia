@@ -1,0 +1,86 @@
+@if (lesson(); as l) {
+  <main class="lesson-page">
+    <header>
+      <a [routerLink]="['/tema', topicId()]" class="back">← Tema 1</a>
+      <div class="progress">
+        <app-progress-bar [value]="pct()" />
+        <span>{{ index() + 1 }} / {{ l.sections.length }}</span>
+      </div>
+    </header>
+
+    @if (section(); as s) {
+      <article class="study-card" [attr.data-accent]="s.accent">
+        <span class="mini">{{ l.title }}</span>
+        <div class="visual" aria-hidden="true">{{ s.emoji }}</div>
+        <h1>{{ s.title }}</h1>
+
+        <div class="lesson-blocks">
+          @for (block of s.blocks; track $index) {
+            @switch (block.type) {
+              @case ('text') {
+                <p class="description">{{ block.text }}</p>
+              }
+              @case ('important') {
+                <div class="remember">
+                  @if (block.title) {
+                    <span>{{ block.title }}</span>
+                  }
+                  <strong>{{ block.text }}</strong>
+                </div>
+              }
+              @case ('cards') {
+                <section class="content-section">
+                  @if (block.title) {
+                    <h2>{{ block.title }}</h2>
+                  }
+                  <div class="concept-cards">
+                    @for (item of block.items ?? []; track item.title) {
+                      <div class="concept-card">
+                        @if (item.emoji) {
+                          <span class="concept-emoji" aria-hidden="true">{{ item.emoji }}</span>
+                        }
+                        <h3>{{ item.title }}</h3>
+                        @if (item.description) {
+                          <p>{{ item.description }}</p>
+                        }
+                      </div>
+                    }
+                  </div>
+                </section>
+              }
+              @case ('list') {
+                <section class="content-section list-section">
+                  @if (block.title) {
+                    <h2>{{ block.title }}</h2>
+                  }
+                  <ul>
+                    @for (item of block.items ?? []; track item.title) {
+                      <li>
+                        @if (item.emoji) {
+                          <span aria-hidden="true">{{ item.emoji }}</span>
+                        }
+                        <span>
+                          <strong>{{ item.title }}</strong>
+                          @if (item.description) {
+                            <small>{{ item.description }}</small>
+                          }
+                        </span>
+                      </li>
+                    }
+                  </ul>
+                </section>
+              }
+            }
+          }
+        </div>
+      </article>
+
+      <nav aria-label="Navegación de la lección">
+        <button type="button" (click)="previous()" [disabled]="index() === 0">← Anterior</button>
+        <button type="button" class="primary" (click)="next()">
+          {{ index() === l.sections.length - 1 ? '¡Lo tengo! ✓' : 'Siguiente →' }}
+        </button>
+      </nav>
+    }
+  </main>
+}

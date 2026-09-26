@@ -1,0 +1,122 @@
+.top {
+  max-width: 1050px;
+  margin: auto;
+  padding: 24px 20px 20px;
+}
+.back {
+  color: #6547d9;
+  text-decoration: none;
+  font-weight: 800;
+}
+.title {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 34px 0 24px;
+}
+.title > span {
+  font-size: 4.5rem;
+}
+.title small,
+.status {
+  font-weight: 800;
+  color: #7054d8;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+.title h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 4px 0;
+}
+.title p {
+  color: #6c687b;
+}
+.overall {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+.content {
+  max-width: 1050px;
+  margin: auto;
+  padding: 20px 20px 60px;
+}
+.lessons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.lesson-card {
+  background: white;
+  border: 1px solid #ece9f8;
+  border-radius: 24px;
+  padding: 22px;
+  display: flex;
+  gap: 18px;
+  box-shadow: 0 10px 30px #392e6710;
+}
+.number {
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  background: #eee9ff;
+  color: #6547d9;
+  font-weight: 900;
+  font-size: 1.3rem;
+  display: grid;
+  place-items: center;
+}
+.lesson-body h3 {
+  font-size: 1.35rem;
+  margin: 8px 0;
+}
+.lesson-body p {
+  color: #6c687b;
+  min-height: 42px;
+}
+.button {
+  display: inline-block;
+  border: 0;
+  background: #6547d9;
+  color: white;
+  text-decoration: none;
+  padding: 13px 20px;
+  border-radius: 14px;
+  font-weight: 800;
+}
+.secondary {
+  background: #f0edff;
+  color: #6043d8;
+}
+.challenge {
+  margin-top: 30px;
+  background: linear-gradient(135deg, #fff1bf, #fff9e7);
+  border-radius: 28px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  align-items: center;
+}
+.challenge-icon {
+  font-size: 3.4rem;
+}
+.challenge h2 {
+  margin: 4px 0;
+}
+.challenge p {
+  margin: 4px 0;
+  color: #665e4c;
+}
+@media (max-width: 650px) {
+  .challenge {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    align-items: flex-start;
+  }
+  .title > span {
+    font-size: 3rem;
+  }
+}

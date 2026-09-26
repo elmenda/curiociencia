@@ -1,0 +1,47 @@
+@if (topic(); as t) {
+  <main class="page">
+    <header class="top">
+      <a routerLink="/" class="back">← Inicio</a>
+      <div class="title">
+        <span>{{ t.emoji }}</span>
+        <div>
+          <small>TEMA {{ t.number }}</small>
+          <h1>{{ t.title }}</h1>
+          <p>{{ t.description }}</p>
+        </div>
+      </div>
+      <div class="overall">
+        <app-progress-bar [value]="percent()" /><strong>{{ percent() }}% aprendido</strong>
+      </div>
+    </header>
+    <section class="content">
+      <h2>Elige una misión</h2>
+      <div class="lessons">
+        @for (lesson of t.lessons; track lesson.id; let i = $index) {
+          <article class="lesson-card">
+            <div class="number">{{ i + 1 }}</div>
+            <div class="lesson-body">
+              <span class="status">{{
+                done(lesson.id) ? '✅ Completada' : '📖 Por aprender'
+              }}</span>
+              <h3>{{ lesson.title }}</h3>
+              <p>{{ lesson.subtitle }}</p>
+              <a class="button secondary" [routerLink]="['/tema', t.id, 'aprender', lesson.id]"
+                >📖 Aprender</a
+              >
+            </div>
+          </article>
+        }
+      </div>
+      <section class="challenge">
+        <div class="challenge-icon">🎮</div>
+        <div>
+          <span class="status">RETO DEL TEMA</span>
+          <h2>¿Cuánto sabes ya?</h2>
+          <p>10 preguntas diferentes en cada partida. Las respuestas también cambian de orden.</p>
+        </div>
+        <a class="button" [routerLink]="['/tema', t.id, 'practicar']">¡Jugar ahora! 🚀</a>
+      </section>
+    </section>
+  </main>
+}

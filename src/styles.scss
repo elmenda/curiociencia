@@ -1,0 +1,44 @@
+:root {
+  font-family:
+    Inter,
+    ui-rounded,
+    'Nunito',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  color: #292534;
+  background: #f8f7fc;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  background: #f8f7fc;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  touch-action: manipulation;
+}
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,34 @@
+<main class="result-page">
+  <section class="result-card">
+    @if (result) {
+      <div class="trophy">🏆</div>
+      <span class="mini">MISIÓN COMPLETADA</span>
+      <h1>
+        {{ pct() >= 80 ? '¡Genial!' : pct() >= 50 ? '¡Buen trabajo!' : '¡Seguimos aprendiendo!' }}
+      </h1>
+      <div class="stars">{{ stars() }}</div>
+      <div class="big-score">
+        {{ result.score }} <small>/ {{ result.total }}</small>
+      </div>
+      <p>
+        Has conseguido <strong>⭐ {{ result.points }} puntos</strong> en esta partida.
+      </p>
+      @if (result.wrongQuestionIds.length) {
+        <div class="tip">
+          💡 Has encontrado {{ result.wrongQuestionIds.length }} pregunta{{
+            result.wrongQuestionIds.length === 1 ? '' : 's'
+          }}
+          difícil{{ result.wrongQuestionIds.length === 1 ? '' : 'es' }}. ¡Otra partida te ayudará a
+          dominarlas!
+        </div>
+      }
+      <div class="actions">
+        <a class="button" [routerLink]="['/tema', topicId(), 'practicar']">🔄 Jugar otra vez</a
+        ><a class="button secondary" [routerLink]="['/tema', topicId()]">← Volver al tema</a>
+      </div>
+    } @else {
+      <h1>Aún no hay resultado</h1>
+      <a class="button" [routerLink]="['/tema', topicId()]">Volver al tema</a>
+    }
+  </section>
+</main>

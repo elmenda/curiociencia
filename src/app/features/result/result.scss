@@ -1,0 +1,64 @@
+.result-page {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+.result-card {
+  max-width: 620px;
+  width: 100%;
+  background: white;
+  border-radius: 34px;
+  padding: clamp(30px, 7vw, 60px);
+  text-align: center;
+  box-shadow: 0 20px 60px #3d326020;
+}
+.trophy {
+  font-size: 6rem;
+}
+.mini {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #7054d8;
+  letter-spacing: 0.08em;
+}
+.result-card h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin: 10px;
+}
+.stars {
+  font-size: 2rem;
+  margin: 16px;
+}
+.big-score {
+  font-size: 4.5rem;
+  font-weight: 950;
+  color: #6547d9;
+}
+.big-score small {
+  font-size: 1.5rem;
+  color: #8a8496;
+}
+.tip {
+  background: #fff6d8;
+  border-radius: 18px;
+  padding: 16px;
+  margin: 24px 0;
+}
+.actions {
+  display: grid;
+  gap: 12px;
+  margin-top: 26px;
+}
+.button {
+  background: #6547d9;
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  border-radius: 15px;
+  font-weight: 900;
+}
+.secondary {
+  background: #efecf7;
+  color: #5d5769;
+}
