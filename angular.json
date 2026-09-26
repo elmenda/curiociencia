@@ -30,6 +30,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/curiociencia/",
               "outputHashing": "all",
               "budgets": [
                 {
