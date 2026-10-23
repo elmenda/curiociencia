@@ -11,7 +11,7 @@ import { ProgressBar } from '../../shared/components/progress-bar/progress-bar';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TopicPage {
-  topicId = input.required<string>();
+  topicId = input<string>('');
   private content = inject(ContentService);
   protected progress = inject(ProgressService);
   protected topic = computed(() => this.content.getTopic(this.topicId()));
