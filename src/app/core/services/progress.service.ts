@@ -3,7 +3,7 @@ import { type QuizResult, type TopicProgress } from '../models/progress.model';
 
 @Injectable({ providedIn: 'root' })
 export class ProgressService {
-  private readonly key = 'curiociencia-progress-v1';
+  private readonly key = 'curio-ciencia-progress-v1';
   private readonly state = signal<Record<string, TopicProgress>>(this.load());
   readonly progress = this.state.asReadonly();
 
@@ -26,7 +26,7 @@ export class ProgressService {
   }
   savePractice(result: QuizResult): void { this.remember(result); }
   lastResult(): QuizResult | null {
-    try { return JSON.parse(sessionStorage.getItem('curiociencia-last-result') ?? 'null') as QuizResult | null; }
+    try { return JSON.parse(sessionStorage.getItem('curio-ciencia-last-result') ?? 'null') as QuizResult | null; }
     catch { return null; }
   }
   private remember(result: QuizResult): void {
