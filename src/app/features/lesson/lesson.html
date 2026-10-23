@@ -81,6 +81,13 @@
           {{ index() === l.sections.length - 1 ? '¡Lo tengo! ✓' : 'Siguiente →' }}
         </button>
       </nav>
+      @if (index() === l.sections.length - 1) {
+        <section class="practice-prompt" style="text-align:center;padding:20px;background:var(--color-primary-50);border-radius:18px;margin-top:20px">
+          <h2>🎯 Practica esta lección</h2>
+          <p>Comprueba lo que has aprendido sobre {{ l.title }}.</p>
+          <a [routerLink]="['/tema', topicId(), 'practicar', lessonId()]">Ir a las preguntas →</a>
+        </section>
+      }
     }
   </main>
 }

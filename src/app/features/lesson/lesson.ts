@@ -12,8 +12,8 @@ import { ProgressBar } from '../../shared/components/progress-bar/progress-bar';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LessonPage {
-  readonly topicId = input.required<string>();
-  readonly lessonId = input.required<string>();
+  readonly topicId = input<string>('');
+  readonly lessonId = input<string>('');
 
   private readonly content = inject(ContentService);
   private readonly progress = inject(ProgressService);
