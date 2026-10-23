@@ -8,6 +8,7 @@ export interface TopicProgress {
 }
 export interface QuizResult {
   topicId: string;
+  lessonId?: string;
   score: number;
   total: number;
   points: number;

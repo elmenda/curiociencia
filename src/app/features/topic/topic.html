@@ -4,43 +4,34 @@
       <a routerLink="/" class="back">← Inicio</a>
       <div class="title">
         <span>{{ t.emoji }}</span>
-        <div>
-          <small>TEMA {{ t.number }}</small>
-          <h1>{{ t.title }}</h1>
-          <p>{{ t.description }}</p>
-        </div>
+        <div><small>TEMA {{ t.number }}</small><h1>{{ t.title }}</h1><p>{{ t.description }}</p></div>
       </div>
-      <div class="overall">
-        <app-progress-bar [value]="percent()" /><strong>{{ percent() }}% aprendido</strong>
-      </div>
+      <div class="overall"><app-progress-bar [value]="percent()" /><strong>{{ percent() }}% aprendido</strong></div>
     </header>
     <section class="content">
-      <h2>Elige una misión</h2>
+      <h2>Aprende y practica paso a paso</h2>
       <div class="lessons">
         @for (lesson of t.lessons; track lesson.id; let i = $index) {
           <article class="lesson-card">
             <div class="number">{{ i + 1 }}</div>
             <div class="lesson-body">
-              <span class="status">{{
-                done(lesson.id) ? '✅ Completada' : '📖 Por aprender'
-              }}</span>
-              <h3>{{ lesson.title }}</h3>
-              <p>{{ lesson.subtitle }}</p>
-              <a class="button secondary" [routerLink]="['/tema', t.id, 'aprender', lesson.id]"
-                >📖 Aprender</a
-              >
+              <span class="status">{{ done(lesson.id) ? '✅ Leída' : '📖 Por aprender' }}</span>
+              <h3>{{ lesson.title }}</h3><p>{{ lesson.subtitle }}</p>
+              <div class="lesson-actions">
+                <a class="button secondary" [routerLink]="['/tema', t.id, 'aprender', lesson.id]">📖 Aprender</a>
+                <a class="button" [routerLink]="['/tema', t.id, 'practicar', lesson.id]">🎯 Practicar</a>
+              </div>
             </div>
           </article>
         }
       </div>
       <section class="challenge">
-        <div class="challenge-icon">🎮</div>
-        <div>
-          <span class="status">RETO DEL TEMA</span>
-          <h2>¿Cuánto sabes ya?</h2>
-          <p>10 preguntas diferentes en cada partida. Las respuestas también cambian de orden.</p>
+        <div class="challenge-icon">🏆</div>
+        <div><span class="status">PRUEBA FINAL · PREGUNTAS NUEVAS</span>
+          <h2>Comprueba tu progreso</h2>
+          <p>20 preguntas inéditas que combinan las cinco lecciones. No se repiten las prácticas y las soluciones aparecen al terminar.</p>
         </div>
-        <a class="button" [routerLink]="['/tema', t.id, 'practicar']">¡Jugar ahora! 🚀</a>
+        <a class="button" [routerLink]="['/tema', t.id, 'practicar']">Empezar el examen →</a>
       </section>
     </section>
   </main>
